@@ -95,12 +95,12 @@ bt_sumar= Button(frame_operaciones, image=bt_sum, width=105, height=105, command
 bt_sumar.place(x=116, y=7)
 
 
-bt_bor= PhotoImage(file="boton_borrar.png")
+bt_bor= PhotoImage(file="borrar.png")
 bt_borrar= Button(frame_operaciones, image=bt_bor, width=105, height=105, command=borrar)
 bt_borrar.place(x=337, y=7)
 
 
-bt_sal= PhotoImage(file="boton_salir.png")
+bt_sal= PhotoImage(file="salir.png")
 bt_salir= Button(frame_operaciones, image=bt_sal, width=105, height=105, command=salir)
 bt_salir.place(x=585, y=7)
 

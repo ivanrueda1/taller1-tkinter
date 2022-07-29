@@ -6,9 +6,19 @@ from tkinter import messagebox
 #---------------------
 
 def sumar ():
-    c=int(x.get())*0.19
-    z=int(x.get())+c
-    t_resultado.insert(INSERT, "Resultados:\n El valor del Iva(0.19) de este producto es "+str(c)+"$.\n El valor total del producto es "+str(z)+"\n")
+    a=int(x.get())%10
+    a1=int(x.get())//10
+    a2=a*1000
+    b=a1%10
+    b1=a1//10
+    b2=b*100
+    c=b1%10
+    c1=b1//10
+    c2=c*10
+
+    z=a2+b2+c2+c1
+
+    t_resultado.insert(INSERT, " El número "+str(x)+" a la inversa es "+str(z)+"\n")
 
 def borrar():
     messagebox.showinfo("Suma 1.0", "Los datos serán borrados...")
@@ -44,8 +54,19 @@ ventana_principal.config(bg="black")
 #---------------------
 # Variables Globales
 #---------------------  
+
 x=IntVar()
+a=IntVar()
+a1=IntVar()
+a2=IntVar()
+
+b=IntVar()
+b1=IntVar()
+b2=IntVar()
+
 c=IntVar()
+c1=IntVar()
+c2=IntVar()
 z=IntVar()
 
 #---------------------
@@ -53,30 +74,30 @@ z=IntVar()
 #---------------------
 
 frame_entrada=Frame(ventana_principal)
-frame_entrada.config(bg="bisque3", width=780, height=240)
+frame_entrada.config(bg="ivory2", width=780, height=240)
 frame_entrada.place(x=10,y=10)
 
-titulo= Label(frame_entrada, text="IVA y precio final del producto")
-titulo.config(bg="bisque3", fg="maroon", font=("Times New Roman", 20))
-titulo.place(x=400,y=10)
+titulo= Label(frame_entrada, text="Especialidad de sistemas")
+titulo.config(bg="ivory2", fg="maroon", font=("Arial", 20))
+titulo.place(x=240,y=10)
 
-subtitulo2= Label(frame_entrada, text="Calcular el IVA de cualquier producto")
-subtitulo2.config(bg="bisque3", fg="black", font=("black", 15), anchor=CENTER)
-subtitulo2.place(x=400,y=70)
+subtitulo2= Label(frame_entrada, text="Devolver número de 4 digitos inverso\n")
+subtitulo2.config(bg="salmon", fg="azure", font=("Arial", 14), anchor=CENTER)
+subtitulo2.place(x=240,y=70)
 
-logo= PhotoImage(file="iconoo.png")
+logo= PhotoImage(file="icono3.png")
 etiq_logo=Label(frame_entrada, image=logo)
 etiq_logo.config(bg="ivory2")
 etiq_logo.place(x=10,y=10)
 
-etiq_a=Label(frame_entrada, text="Precio del Producto = ")
-etiq_a.config(bg="ivory2", fg="black", font=("Arial", 15), anchor=CENTER)
-etiq_a.place(x=270, y=145)
+etiq_a=Label(frame_entrada, text="Número de 4 dígitos : ")
+etiq_a.config(bg="bisque3", fg="blue", font=("Arial", 18), anchor=CENTER)
+etiq_a.place(x=255, y=110)
 
 entry_a=Entry(frame_entrada, width=7, textvariable=x)
 entry_a.config(font=("Arial", 20), justify=CENTER)
 entry_a.focus_set()
-entry_a.place(x=480,y=140)
+entry_a.place(x=490,y=115)
 
 
 #---------------------
@@ -84,11 +105,11 @@ entry_a.place(x=480,y=140)
 #---------------------
 
 frame_operaciones=Frame(ventana_principal)
-frame_operaciones.config(bg="aquamarine2", width=780, height=120)
+frame_operaciones.config(bg="salmon", width=780, height=120)
 frame_operaciones.place(x=10,y=260)
 
 
-bt_sum= PhotoImage(file="iva.png")
+bt_sum= PhotoImage(file="inverso.png")
 bt_sumar= Button(frame_operaciones, image=bt_sum, width=105, height=105, command=sumar)
 bt_sumar.place(x=116, y=7)
 
@@ -108,13 +129,16 @@ bt_salir.place(x=585, y=7)
 #---------------------
 
 frame_resultados=Frame(ventana_principal)
-frame_resultados.config(bg="indian red", width=780, height=100)
+frame_resultados.config(bg="salmon", width=780, height=100)
 frame_resultados.place(x=10,y=390)
 
 t_resultado=Text(frame_resultados, width=77, height=5)
-t_resultado.config(bg="Palegreen2", fg="white", font=("Courier", 12))
+t_resultado.config(bg="cyan2", fg="white", font=("Courier", 12))
 t_resultado.pack(expand=True)
+
 
 
 ventana_principal.mainloop()
 
+# se ejecuta el metodo mainloop() de la clase Tk() a través de la instancia ventana_principal.  Este metodo despliega una ventana simple en pantalla y queda a la espera de lo que el usuario haga (click en boton, escribir, etc).  Cada accion del usuario se conoce como un evento.  El metodo mainloop() es un bucle infinito.
+ventana_principal.mainloop()
